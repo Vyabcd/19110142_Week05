@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+      margin-right: 10px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>List of blogs</h2>
+  <ul>
+    {{#each posts}}
+      <li>
+        <a href="/post/{{id}}">{{title}}</a>
+        <div>
+          <a href="/post/{{id}}/edit">Edit</a>
+          <a href="/post/{{id}}/delete">Delete</a>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>

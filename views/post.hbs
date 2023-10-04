@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    p {
+      color: #666;
+    }
+    h3 {
+      color: #333;
+      margin-top: 20px;
+      text-align: center;      
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f9f9f9;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Title: {{post.title}}</h2>
+  <p>Content: {{post.content}}</p>
+  <h3>Comments</h3>
+  <ul>
+    {{#each post.comments}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+  <form action="/post/{{post.id}}/comment" method="POST">
+    <label for="comment">Your Comment:</label>
+    <input type="text" name="comment" required>
+    <button type="submit">Enter</button>
+  </form>
+</body>
+</html>
